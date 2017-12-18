@@ -1,0 +1,12 @@
+#side-nav {
+    background-color: #000;
+    padding-top: 18px;
+    width: 65px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.mat-icon {
+    color: white;
+}
