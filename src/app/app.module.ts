@@ -7,7 +7,7 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatGridListModule, MatLi
 import { AppComponent } from './app.component';
 import { AppRoutingModule} from './app-routing.module';
 
-import { SideNavComponent, TaskBoardComponent, TaskColumnComponent, TaskComponent, TopBarComponent } from '../components/index';
+import { AddComponent, SideNavComponent, TaskBoardComponent, TaskColumnComponent, TaskComponent, TopBarComponent } from '../components/index';
 
 import { TaskService } from '../shared/index';
 
@@ -18,7 +18,8 @@ import { TaskService } from '../shared/index';
     TaskBoardComponent,
     TopBarComponent,
     TaskColumnComponent,
-    TaskComponent
+    TaskComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

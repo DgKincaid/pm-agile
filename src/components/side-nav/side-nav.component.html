@@ -1,5 +1,5 @@
-<div id="side-nav">
-  <ul class="flex-container">
+<div id="side-nav" fxLayout="column">
+  <!-- <ul class="flex-container">
     <li>
       <button mat-icon-button>
           <mat-icon>dashboard</mat-icon>
@@ -8,5 +8,24 @@
     <li></li>
     <li></li>
     <li></li>
-  </ul>
-</div>
+  </ul> -->
+
+  <div fxLayout="column" fxLayoutAlign="start center">
+    <div style="padding-bottom: 10px;">
+        <button mat-icon-button>
+          <mat-icon routerLink="/add">add</mat-icon>
+        </button>
+    </div>
+    
+    <button mat-icon-button>
+      <mat-icon routerLink="/task-board">dashboard</mat-icon>
+    </button>
+  </div>
+
+  <div class="bottom-link">
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </div>
