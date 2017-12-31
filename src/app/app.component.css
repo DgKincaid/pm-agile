@@ -1,0 +1,8 @@
+.main-content{
+    border: solid red 1px;
+    position: absolute;
+    top: 50px;
+    left: 44px;
+    bottom: 0;
+    right: 0;
+}

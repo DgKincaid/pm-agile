@@ -1,12 +1,30 @@
 #side-nav {
-    background-color: #000;
+    background-color: #525252;
     padding-top: 18px;
-    width: 65px;
+    width: 44px;
     position: absolute;
     top: 0;
     bottom: 0;
 }
 
-.mat-icon {
-    color: white;
+.side-nav ul{
+    list-style: none;
+}
+.flex-container{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-icon-button{
+    background-color: transparent;
+}
+
+.mat-icon{
+    color: #ADADAD;
+}
+.mat-icon:hover{
+    color: #d8d7d7;
 }

@@ -1,5 +1,4 @@
 const { app, BrowserWindow } = require('electron')
-
 const path = require('path')
 const url = require('url');
 
@@ -37,4 +36,8 @@ app.on('activate', function(){
     if(win === null){
         createWindow();
     }
+})
+
+app.on('getTasks', function(){
+    console.log('get tasks');
 })

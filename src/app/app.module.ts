@@ -1,20 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { MatIconModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatButtonModule, MatCardModule, MatIconModule, MatGridListModule, MatListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { SideNavComponent } from '../components/side-nav/side-nav.component';
+import { AppRoutingModule} from './app-routing.module';
 
+import { SideNavComponent, TaskBoardComponent, TaskColumnComponent, TaskComponent, TopBarComponent } from '../components/index';
+
+import { TaskService } from '../shared/index';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent
+    SideNavComponent,
+    TaskBoardComponent,
+    TopBarComponent,
+    TaskColumnComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
-    MatIconModule
+    AppRoutingModule,
+
+    FlexLayoutModule,
+    
+    //Material Design ImportsK
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule, 
+    MatListModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
