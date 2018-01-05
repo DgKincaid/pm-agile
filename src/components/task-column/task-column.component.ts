@@ -13,7 +13,6 @@ export class TaskColumnComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.tasks);
   }
 
 }

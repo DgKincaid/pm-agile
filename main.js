@@ -1,8 +1,12 @@
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
 const url = require('url');
+const glob = require('glob');
+const ipc = require('electron').ipcMain;
 
 let win;
+
+//loadDemos()
 
 function createWindow(){
     win = new BrowserWindow({
@@ -38,6 +42,13 @@ app.on('activate', function(){
     }
 })
 
-app.on('getTasks', function(){
-    console.log('get tasks');
+ipc.on('add-task', function(event, arg){
+    console.log('Add Task');
 })
+
+// function loadDemos () {
+//     var files = glob.sync(path.join(__dirname, 'main-process/**/*.js'))
+//     files.forEach(function (file) {
+//       require(file)
+//     })
+//   }
