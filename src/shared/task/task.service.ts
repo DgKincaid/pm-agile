@@ -7,11 +7,9 @@ let ipcRenderer = window.require('electron').ipcRenderer;
 export class TaskService {
 
   constructor() { 
-    console.log('Test')
-    this.save(1);
   }
 
-  save(vale: any): void {
-    ipcRenderer.send('add-task');
+  save(value: any): void {
+    ipcRenderer.send('add-task', value);
   }
 }

@@ -28,6 +28,6 @@ export class AddComponent implements OnInit {
   save(){
     console.log(this.addForm);
 
-    this.taskService.save(1);
+    this.taskService.save(this.addForm.value);
   }
 }

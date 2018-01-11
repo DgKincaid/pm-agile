@@ -6,7 +6,7 @@ const ipc = require('electron').ipcMain;
 
 let win;
 
-//loadDemos()
+loadDemos()
 
 function createWindow(){
     win = new BrowserWindow({
@@ -42,13 +42,10 @@ app.on('activate', function(){
     }
 })
 
-ipc.on('add-task', function(event, arg){
-    console.log('Add Task');
-})
 
-// function loadDemos () {
-//     var files = glob.sync(path.join(__dirname, 'main-process/**/*.js'))
-//     files.forEach(function (file) {
-//       require(file)
-//     })
-//   }
+function loadDemos () {
+    var files = glob.sync(path.join(__dirname, 'main-process/*.js'))
+    files.forEach(function (file) {
+      require(file)
+    })
+  }
