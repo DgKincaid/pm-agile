@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../../shared/index';
 
 @Component({
   selector: 'task-board',
@@ -6,35 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-board.component.css']
 })
 export class TaskBoardComponent implements OnInit {
-
-  tasks = [
-    {
-      id: 2,
-      name: 'Test Task 2',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis porttitor laoreet. Nam molestie nunc sed velit tincidunt, ac cursus velit lacinia. Duis semper urna quis gravida condimentum. ",
-      state: 'To Do',
-      assigned_to: 'John Smith'
-    },
-    {
-      id: 3,
-      name: 'Test Task 1',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis porttitor laoreet. Nam molestie nunc sed velit tincidunt, ac cursus velit lacinia. Duis semper urna quis gravida condimentum. ",
-      state: 'To Do',
-      assigned_to: 'John Smith'
-    },
-    {
-      id: 4,
-      name: 'Test Task 3',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis porttitor laoreet. Nam molestie nunc sed velit tincidunt, ac cursus velit lacinia. Duis semper urna quis gravida condimentum. ",
-      state: 'To Do',
-      assigned_to: 'John Smith'
-    }
-  ]
+  private tasks: Array<any>;
 
   get getTasks(){
     return this.tasks;
   }
-  constructor() { }
+  constructor(private taskService: TaskService) { 
+    this.taskService.getTasks();
+
+    this.taskService.taskChange.subscribe(() => {
+      this.tasks = this.taskService.tasks;
+    })
+  }
 
   ngOnInit() {
   }
