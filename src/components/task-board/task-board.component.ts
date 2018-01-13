@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, NgZone } from '@angular/core';
 import { TaskService } from '../../shared/index';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'task-board',
@@ -7,20 +9,23 @@ import { TaskService } from '../../shared/index';
   styleUrls: ['./task-board.component.css']
 })
 export class TaskBoardComponent implements OnInit {
-  private tasks: Array<any>;
+  public tasks: Array<any> = new Array<any>();
 
-  get getTasks(){
-    return this.tasks;
-  }
-  constructor(private taskService: TaskService) { 
-    this.taskService.getTasks();
+  constructor( private taskService: TaskService, private zone: NgZone) { 
+    this.taskService.taskChange.subscribe((tasks) => {
 
-    this.taskService.taskChange.subscribe(() => {
-      this.tasks = this.taskService.tasks;
+      this.zone.run(() =>{
+        this.tasks = this.taskService.tasks;
+      })
     })
   }
 
   ngOnInit() {
+    this.taskService.getTasks();
   }
 
+  public filterTasks(tasks: Array<any>, filter: string): Array<any>{
+    
+    return tasks.filter(task => task.state == filter);
+  }
 }

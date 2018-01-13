@@ -1,5 +1,5 @@
 <div fxLayout="row" fxFlexFill>
-  <task-column [tasks]="tasks" [name]="'To Do'" fxFlex="grow" fxFlexFill></task-column>
-  <task-column [tasks]="tasks" [name]="'To Do'" fxFlex="grow"></task-column>
-  <task-column [tasks]="tasks" [name]="'To Do'" fxFlex="grow"></task-column>
+  <task-column [tasks]="filterTasks(tasks, 'to_do')" [name]="'To Do'" fxFlex="grow" fxFlexFill></task-column>
+  <task-column [tasks]="filterTasks(tasks, 'in_progress')" [name]="'In Progress'" fxFlex="grow"></task-column>
+  <task-column [tasks]="filterTasks(tasks, 'done')" [name]="'Done'" fxFlex="grow"></task-column>
 </div>
