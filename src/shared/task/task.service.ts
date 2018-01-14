@@ -28,6 +28,7 @@ export class TaskService {
   }
 
   public save(value: any): void {
+    value.state = 'to_do';
     ipcRenderer.send('add-task', value);
   }
 

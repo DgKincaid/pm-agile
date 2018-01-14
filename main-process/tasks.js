@@ -3,6 +3,15 @@ const ipc = require('electron').ipcMain;
 
 ipc.on('add-task', function(event, arg){
     console.log('Add task');
+    console.log(arg);
+
+    taskDA.addTask(arg, (err, res) => {
+        if(err){
+            console.log(err);
+        }
+        //Save Successfull
+        console.log('save successful');
+    })
 })
 
 ipc.on('get-tasks', function(event, arg) {

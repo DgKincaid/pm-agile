@@ -28,7 +28,7 @@ var tasks = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis porttitor laoreet. Nam molestie nunc sed velit tincidunt, ac cursus velit lacinia. Duis semper urna quis gravida condimentum. ",
         state: 'in_progress',
         assigned_to: 'John Smith'
-      }
+    }
   ]
 
 const taskDA = new function(){
@@ -50,14 +50,10 @@ const taskDA = new function(){
         })
     }
 
-    this.addTask = (task) => {
+    this.addTask = (task, callback) => {
         let currentDate = new Date().toISOString();
-        return db.query('INSERT INTO tasks(name, description, state, assigned_to, created_dttm, modified_dttm) values($1, $2, $3, $4, $5, $6)', [task.name, task.description, task.state, task.assigned_to, currentDate, currentDate], (err, res) => {
-            if (err) {
-                console.log(err);
-            }
-            console.log(res.rows);
-        })
+        return db.query('INSERT INTO tasks(name, description, state, assigned_to, created_dttm, modified_dttm) values($1, $2, $3, $4, $5, $6)', 
+            [task.name, task.description, task.state, task.assigned_to, currentDate, currentDate], callback);
     }
 
     this.getTasks = (callback) => {

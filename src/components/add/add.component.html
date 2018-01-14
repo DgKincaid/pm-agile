@@ -7,10 +7,13 @@
         <mat-form-field>
             <textarea matInput placeholder="Description" formControlName="description"></textarea>
         </mat-form-field>
+        <mat-form-field>
+                <input matInput placeholder="Assigned To" formControlName="assigned_to" required >
+        </mat-form-field>
         <div style="margin-bottom: 1em">
             <button (click)="save()" mat-raised-button color="primary">Save</button> &nbsp;
             <button mat-raised-button>Cancel</button>
-          </div>
+        </div>
     </form>
 </mat-card-content>
 </mat-card>

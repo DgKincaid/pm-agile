@@ -21,12 +21,13 @@ export class AddComponent implements OnInit {
   createForm(){
     this.addForm = this.fb.group({
       name: '',
-      description: ''
+      description: '',
+      assigned_to: ''
     })
   }
 
   save(){
-    console.log(this.addForm);
+    console.log(this.addForm.value);
 
     this.taskService.save(this.addForm.value);
   }
