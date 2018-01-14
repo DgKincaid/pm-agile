@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatGridListModule, MatListModule } from '@angular/material';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule} from './app-routing.module';
@@ -33,13 +34,15 @@ import { TaskService } from '../shared/index';
 
     FlexLayoutModule,
     
-    //Material Design ImportsK
+    //Material Design Imports
     MatButtonModule,
     MatCardModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+
+    NgDragDropModule.forRoot()
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

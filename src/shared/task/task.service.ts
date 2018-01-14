@@ -36,4 +36,12 @@ export class TaskService {
     this.loading = true;
     ipcRenderer.send('get-tasks');
   }
+
+  public updateState(task: any, state: string) {
+    let index = this.tasks.findIndex(i => i.id == task.id);
+
+    this.tasks[index].state = state;
+
+    this.emitTaskChange(this.tasks);
+  }
 }

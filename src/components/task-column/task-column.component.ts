@@ -14,10 +14,15 @@ export class TaskColumnComponent implements OnInit {
   @Input() tasks: Array<any>;
   @Input() name: string;
 
-  constructor() { 
+  constructor(private taskService: TaskService) { 
   }
 
   ngOnInit() {
-    
+  }
+
+  onItemDrop(event){
+    let state = this.name.replace(' ', '_').toLowerCase();
+    console.log(state);
+    this.taskService.updateState(event.dragData, state);
   }
 }

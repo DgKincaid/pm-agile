@@ -1,8 +1,8 @@
-<div class="task-col" style="border: 1px solid black; min-width: 200px;" fxFlexFill>
+<div class="task-col" droppable (onDrop)="onItemDrop($event)" style="border: 1px solid black; min-width: 200px;" fxFlexFill>
   <h3 fxLayoutAlign="center start" >{{name}}</h3>
   <div fxLayout="column" fxLayoutGap="20px">
     <ng-container *ngFor="let task of tasks">
-      <task [task]="task"></task>
+      <task [task]="task" draggable [dragData]="task"></task>
     </ng-container>
   </div>
 </div>
