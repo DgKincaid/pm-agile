@@ -24,3 +24,13 @@ ipc.on('get-tasks', function(event, arg) {
         event.sender.send('get-task-reply', res.rows)
     })
 })
+
+ipc.on('update-task', function(event, arg){
+    console.log(arg);
+    taskDA.updateTask(arg, (err, res) => {
+        if(err){
+            console.log(err);
+        }
+        console.log('update success');
+    })
+})

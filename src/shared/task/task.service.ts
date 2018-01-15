@@ -10,11 +10,15 @@ export class TaskService {
   public loading: boolean = false;
 
   public taskChange: EventEmitter<any> = new EventEmitter<any>();
-  counter = 0;
+  
   constructor() { 
     ipcRenderer.on('get-task-reply', (event, arg) => {
       this.emitTaskChange(arg);
       this.loading = false;
+    })
+
+    ipcRenderer.on('update-task-reply', (event, arg) => {
+      console.log(arg);
     })
   }
 
@@ -42,6 +46,7 @@ export class TaskService {
 
     this.tasks[index].state = state;
 
-    this.emitTaskChange(this.tasks);
+    ipcRenderer.send('update-task', this.tasks[index]);
+    //this.emitTaskChange(this.tasks);
   }
 }

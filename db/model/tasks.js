@@ -59,6 +59,13 @@ const taskDA = new function(){
     this.getTasks = (callback) => {
         return db.query('SELECT * FROM tasks', [], callback);
     }
+
+    this.updateTask = (task, callback) => {
+        let currentDate = new Date().toISOString();
+
+        return db.query('UPDATE tasks SET name=$2, description=$3, state=$4, assigned_to=$5, modified_dttm=$6 WHERE id=$1', 
+        [task.id, task.name, task.description, task.state, task.assigned_to, currentDate], callback);
+    }
 }
 
 module.exports = taskDA;

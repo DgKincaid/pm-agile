@@ -1,3 +1,4 @@
 .task-col{
     background-color: #d8d7d7;
+    overflow: auto;
 }
